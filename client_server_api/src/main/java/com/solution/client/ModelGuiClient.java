@@ -1,9 +1,12 @@
 package com.solution.client;
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * Class {@code ModelGuiClient}
+ * Was created to save all clients
+ */
 public class ModelGuiClient {
-    //в модели лиентского приложения хранится множетство подключившихся пользователей
+    //в модели клиентского приложения хранится множетство подключившихся пользователей
     private Set<String> users = new HashSet<>();
 
     protected Set<String> getUsers() {

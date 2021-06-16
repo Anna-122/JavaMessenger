@@ -7,12 +7,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
+/**
+ * Class {@code ViewGuiServer}
+ *
+ * Was created for view server side for user
+ */
 public class ViewGuiServer {
-    private JFrame frame = new JFrame("Запуск сервера");
+    private JFrame frame = new JFrame("Server starting");
     private JTextArea dialogWindow = new JTextArea(10, 40);
-    private JButton buttonStartServer = new JButton("Запустить сервер");
-    private JButton buttonStopServer = new JButton("Остановить сервер");
+    private JButton buttonStartServer = new JButton("Start the server");
+    private JButton buttonStopServer = new JButton("Stop the server");
     private JPanel panelButtons = new JPanel();
     private final Server server;
 
@@ -56,25 +60,34 @@ public class ViewGuiServer {
         });
     }
 
+    /**
+     * Method was created to add message in text window
+     *
+     */
     //метод который добавляет в текстовое окно новое сообщение
     public void refreshDialogWindowServer(String serviceMessage) {
         dialogWindow.append(serviceMessage);
     }
 
+    /**
+     * Method was created to call the dialog window to enter the server port
+     *
+     * @throws Exception - server port input error
+     */
     //метод вызывающий диалоговое окно для ввода порта сервера
     protected int getPortFromOptionPane() {
         while (true) {
             String port = JOptionPane.showInputDialog(
-                    frame, "Введите порт сервера:",
-                    "Ввод порта сервера",
+                    frame, "Enter the server port:",
+                    "Server port input",
                     JOptionPane.QUESTION_MESSAGE
             );
             try {
                 return Integer.parseInt(port.trim());
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
-                        frame, "Введен неккоректный порт сервера. Попробуйте еще раз.",
-                        "Ошибка ввода порта сервера", JOptionPane.ERROR_MESSAGE
+                        frame, "Incorrect server port entered. Try again.",
+                        "Server port input error", JOptionPane.ERROR_MESSAGE
                 );
             }
         }

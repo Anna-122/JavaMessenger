@@ -3,20 +3,28 @@ package com.solution.server;
 import com.solution.connection.Connection;
 import com.solution.connection.Message;
 import com.solution.connection.MessageType;
-
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-
+/**
+ * Class {@code Server}
+ * Was created to describe methods
+ */
 public class Server {
     private ServerSocket serverSocket;
     private static ViewGuiServer gui; //объект класса представления
     private static ModelGuiServer model; //объект класса модели
     private static volatile boolean isServerStart = false; //флаг отражающий состояние сервера запущен/остановлен
 
+    /**
+     * Method was created to start server
+     *
+     * @ param port - value of port
+     * @throws Exception - if server was failed
+     */
     //метод, запускающий сервер
     protected void startServer(int port) {
         try {
@@ -28,6 +36,11 @@ public class Server {
         }
     }
 
+    /**
+     * Method was created to stop server
+     *
+     * @throws Exception - if server could not be stopped
+     */
     //метод останавливающий сервер
     protected void stopServer() {
         try {
@@ -45,6 +58,11 @@ public class Server {
         }
     }
 
+    /**
+     * Method was created to accept new socket connection from client
+     *
+     * @throws Exception - if server connection lost
+     */
     //метод, в котором в бесконечном цикле сервер принимает новое сокетное подключение от клиента
     protected void acceptServer() {
         while (true) {
@@ -58,6 +76,11 @@ public class Server {
         }
     }
 
+    /**
+     * Method was created to send message to all clients from Map
+     *
+     * @throws Exception - if message was not sent
+     */
     //метод, рассылающий заданное сообщение всем клиентам из мапы
     protected void sendMessageAllUsers(Message message) {
         for (Map.Entry<String, Connection> user : model.getAllUsersMultiChat().entrySet()) {
@@ -86,6 +109,9 @@ public class Server {
         }
     }
 
+    /**
+     * Class {@code ServerThread}
+     */
     //класс-поток, который запускается при принятии сервером нового сокетного соединения с клиентом, в конструктор
     //передается объект класса Socket
     private class ServerThread extends Thread {
@@ -95,6 +121,11 @@ public class Server {
             this.socket = socket;
         }
 
+        /**
+         * Method was created to realize the server request from the client for the name and adding the name to the Map
+         *
+         * @throws Exception - error occurred while requesting and adding a new user
+         */
         //метод который реализует запрос сервера у клиента имени и добавлении имени в мапу
         private String requestAndAddingUser(Connection connection) {
             while (true) {
@@ -125,6 +156,11 @@ public class Server {
             }
         }
 
+        /**
+         * Method was created to realize connection between users
+         *
+         * @throws Exception - error occurred while sending a message from the user  either disconnected
+         */
         //метод, реализующий обмен сообщениями между пользователями
         private void messagingBetweenUsers(Connection connection, String userName) {
             while (true) {
@@ -151,6 +187,11 @@ public class Server {
             }
         }
 
+        /**
+         * Method was overrided to run connection  in thread
+         *
+         * @throws Exception - error occurred while sending a message from the user
+         */
         @Override
         public void run() {
             gui.refreshDialogWindowServer(String.format("A new user connected with a remote socket- %s.\n", socket.getRemoteSocketAddress()));
