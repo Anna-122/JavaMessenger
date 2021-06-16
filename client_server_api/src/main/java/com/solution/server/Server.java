@@ -202,7 +202,7 @@ public class Server {
                 String nameUser = requestAndAddingUser(connection);
                 messagingBetweenUsers(connection, nameUser);
             } catch (Exception e) {
-                gui.refreshDialogWindowServer(String.format("An error occurred while sending a message from the user!\n"));
+                gui.refreshDialogWindowServer(String.format("An error occurred while sending a message from the user!\n "));
             }
         }
     }

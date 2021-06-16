@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
  * Was created for view server side for user
  */
 public class ViewGuiServer {
-    private JFrame frame = new JFrame("Server starting");
+    private JFrame frame = new JFrame("Server starting ");
     private JTextArea dialogWindow = new JTextArea(10, 40);
     private JButton buttonStartServer = new JButton("Start the server");
     private JButton buttonStopServer = new JButton("Stop the server");
