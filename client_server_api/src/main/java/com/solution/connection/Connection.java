@@ -3,6 +3,10 @@ package com.solution.connection;
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * Class {@code Connection}
+ * Was created for socket connection
+ */
 public class Connection implements Closeable {
     private final Socket socket;
     private final ObjectOutputStream out;
@@ -15,6 +19,10 @@ public class Connection implements Closeable {
         this.in = new ObjectInputStream(socket.getInputStream());
     }
 
+    /**
+     * Method was created to send message by socket connection
+     *
+     */
     //метод, отправляющий по сокетному соединению сообщение
     public void send(Message message) throws IOException {
         synchronized (this.out) {
@@ -22,6 +30,11 @@ public class Connection implements Closeable {
         }
     }
 
+    /**
+     * Method was created to receive message by socket connection
+     *
+     * @return message
+     */
     //метод, принимающий сообщение по сокетному соединению
     public Message receive() throws IOException, ClassNotFoundException {
         synchronized (this.in) {
@@ -30,6 +43,10 @@ public class Connection implements Closeable {
         }
     }
 
+    /**
+     * Method was created to close read, write and socket streams
+     *
+     */
     //метод, зарывающий потоки чтения, записи и сокет
     @Override
     public void close() throws IOException {
