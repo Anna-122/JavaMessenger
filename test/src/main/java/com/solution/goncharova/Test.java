@@ -1,11 +1,10 @@
-package com.solution.client;
+package com.solution.goncharova;
 
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import org.apache.logging.log4j.LogManager;
 
 public class Test {
 

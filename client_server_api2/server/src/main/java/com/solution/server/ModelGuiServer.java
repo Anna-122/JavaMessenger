@@ -25,6 +25,5 @@ public class ModelGuiServer {
     protected void removeUser(String nameUser) {
         allUsersMultiChat.remove(nameUser);
     }
-
 }
 

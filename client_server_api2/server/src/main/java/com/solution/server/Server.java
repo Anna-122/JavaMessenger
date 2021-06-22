@@ -66,7 +66,6 @@ public class Server {
         } catch (Exception e) {
             gui.refreshDialogWindowServer("Server could not be stopped.\n");
             LOG4j2.error("Server could not be stopped.\n");
-
         }
     }
 

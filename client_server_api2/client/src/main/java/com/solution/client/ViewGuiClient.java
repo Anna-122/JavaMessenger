@@ -22,9 +22,7 @@ public class ViewGuiClient {
     private JTextField textField = new JTextField(40);
     private JButton buttonDisable = new JButton("Disconnect");
     private JButton buttonConnect = new JButton("Connect");
-    private JButton enterButton = new JButton("Enter");
-
-
+    private JButton enterButton = new JButton("Send");
 
     public ViewGuiClient(Client client) {
         this.client = client;
@@ -36,20 +34,8 @@ public class ViewGuiClient {
     //метод, инициализирующий графический интерфейс клиентского приложения
     protected void initFrameClient() {
 
-
-//        enterButton.setPreferredSize(new Dimension(110, 25));
-//        panel.add(enterButton);
-//        enterButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//
-//                //textField.setActionCommand(enterButton.getText());
-//                //textField.setText("");
-//
-//                enterButton.setText(textField.getText());
-//            }
-//        });
-
+        enterButton.setPreferredSize(new Dimension(110, 25));
+        panel.add(enterButton);
         messages.setEditable(false);
         users.setEditable(false);
         frame.add(new JScrollPane(messages), BorderLayout.CENTER);
@@ -85,6 +71,13 @@ public class ViewGuiClient {
             }
         });
         textField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                client.sendMessageOnServer(textField.getText());
+                textField.setText("");
+            }
+        });
+        enterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 client.sendMessageOnServer(textField.getText());
@@ -186,20 +179,5 @@ public class ViewGuiClient {
     }
 }
 
-//public class  ButtonListener implements ActionListener {
-//
-//        public void actionPerformed(final ActionEvent ev) {
-//            if (!input.getText().trim().equals("")) {
-//                String cmd = ev.getActionCommand();
-//                if (ENTER.equals(cmd)) {
-//                    output.append(input.getText());
-//                    output.append("\n");
-//                }
-//            }
-//            input.setText("");
-//            input.requestFocus();
-//        }
-//    }
-//}
 
 
