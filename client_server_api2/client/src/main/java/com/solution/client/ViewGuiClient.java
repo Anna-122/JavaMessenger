@@ -1,7 +1,6 @@
 package com.solution.client;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,12 +34,12 @@ public class ViewGuiClient {
     protected void initFrameClient() {
 
         enterButton.setPreferredSize(new Dimension(110, 25));
-        panel.add(enterButton);
         messages.setEditable(false);
         users.setEditable(false);
         frame.add(new JScrollPane(messages), BorderLayout.CENTER);
         frame.add(new JScrollPane(users), BorderLayout.EAST);
         panel.add(textField);
+        panel.add(enterButton);
         panel.add(buttonConnect);
         panel.add(buttonDisable);
         frame.add(panel, BorderLayout.SOUTH);
