@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/client_server_api2/client/client.iml" filepath="$PROJECT_DIR$/client_server_api2/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client_server_api/client_server_api.iml" filepath="$PROJECT_DIR$/client_server_api/client_server_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client_server_api2/client_server_api2.iml" filepath="$PROJECT_DIR$/client_server_api2/client_server_api2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client_server_api2/connection/connection.iml" filepath="$PROJECT_DIR$/client_server_api2/connection/connection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java_messenger.iml" filepath="$PROJECT_DIR$/.idea/java_messenger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client_server_api2/server/server.iml" filepath="$PROJECT_DIR$/client_server_api2/server/server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot_chat/springboot_chat.iml" filepath="$PROJECT_DIR$/springboot_chat/springboot_chat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+    </modules>
+  </component>
+</project>
